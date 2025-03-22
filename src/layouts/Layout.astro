@@ -1,15 +1,24 @@
 ---
 import Header from "../components/Header.astro";
+
+const title = "ST Industrial";
+const descriptionPage =
+  "Pagina web de ST Industrial, servicios industriales, mentenimiento industrial, soporte tecnico, asesoria en maquinaria, instalacion en sitio";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <meta name="og:title" content={title} />
+    <meta name="og:description" content={descriptionPage} />
+    <meta name="og:site_name" content="ST Industrial" />
+    <meta name="og:type" content="website" />
+    <meta name="og:locale" content="es_CO" />
+    <title>ST Industrial</title>
   </head>
   <body>
     <slot />
