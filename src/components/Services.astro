@@ -1,0 +1,68 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/ContentSection.astro";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Mantenimiento Preventivo",
+    description:
+      "Realizamos mantenimiento preventivo a sus equipos, inclutendo limpieza general, lubricación, engrace de partes mecanicas y validacion del estado de los compuestos, mecanicos, electricos y electronicos de sus equipos.",
+    icon: "handshake",
+  },
+  {
+    title: "Mantenimiento Plus",
+    description:
+      "Realizamos un mantenimiento exaustivo a la parte mecanica y electrica de sus equipos, realizando montaje y desmontaje de motores, revisión de valvulina, chumaceras, cuñas y prisioneros, se realizara lijado y pintura de estructura metálica (tapas externas).",
+    icon: "swap-driving",
+  },
+  {
+    title: "Mantenimiento Correctivo",
+    description:
+      "Este servicio se ofrece generalmente después del mantenimiento preventivo para solucionar problemas que requieren más tiempo del previsto. También puede ser necesario en caso de fallas imprevistas que afecten el funcionamiento de los equipos. Incluye una revisión diagnóstica y la elaboración de un plan de acción para resolver el problema de manera eficiente.",
+    icon: "handshake",
+  },
+  {
+    title: "Broad Integration",
+    description:
+      "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any of your favorite npm packages.",
+    icon: "handshake",
+  },
+  {
+    title: "SEO Enabled",
+    description:
+      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication.",
+    icon: "handshake",
+  },
+  {
+    title: "Community",
+    description:
+      "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
+    icon: "handshake",
+  },
+];
+---
+
+<ContentSection title="Servicios" id="services">
+  <Fragment slot="lead">
+    Proveemos gran variedad de <span class="text-primary">servicios</span>.
+    brindando soluciones de gran calidad y eficiencia. Nuestro equipo de trabajo
+    utiliza las mejores herramientas <span class="text-primary"
+      >de vanguardia</span
+    >
+    y agrega sus propias <span class="text-primary">innovaciones</span>.
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="size-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} class="size-full" />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>

@@ -7,7 +7,7 @@ const descriptionPage =
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="h-full motion-safe:scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -20,7 +20,9 @@ const descriptionPage =
     <meta name="og:locale" content="es_CO" />
     <title>ST Industrial</title>
   </head>
-  <body>
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
     <slot />
   </body>
 </html>
