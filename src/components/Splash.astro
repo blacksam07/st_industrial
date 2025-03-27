@@ -2,13 +2,14 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import inspectorImage from "~/assets/inspector.png";
+import bgImage from "~/assets/picture.png";
 import Starfield from "~/components/StarField.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
-<section class="relative h-full bg-black">
+<section class="relative h-full">
   <Starfield />
   <div class="relative grid h-full place-items-center sm:grid-cols-2">
     <h2
@@ -19,8 +20,10 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
         class="gradient-text text-center text-white font-extrabold tracking-tighter text-6xl md:text-8xl"
       >
         ST Industrial
-        <br /> Mantenimiento,
-        <br /> Reparaciones.
+        <br />
+        <span class="text-primary">Mantenimiento</span>,
+        <br />
+        <span class="text-secondary">Reparaciones.</span>
       </div>
     </h2>
     <div

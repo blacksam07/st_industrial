@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import ContentSection from "@components/ContentSection.astro";
+import ClientsCard from "@components/ClientsCard.astro";
+
+const featuredSites = await getCollection("clients");
+const orderedSites = featuredSites.sort(
+  (a, b) => a.data.featured! - b.data.featured!
+);
+---
+
+<ContentSection title="Clientes" id="clients">
+  <Fragment slot="lead">
+    Algunos de nuestros clientes nos prefieren por <span class="text-primary"
+      >versatilidad</span
+    >.{" "}
+    <span class="text-primary">Calidad</span> de nuestra mano de obra y{" "}
+    <span class="text-primary">Transparencia</span>.
+  </Fragment>
+  <div class="max-w-6xl space-y-2">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {orderedSites.map((site) => <ClientsCard site={site} />)}
+    </div>
+    <p class="text-right text-sm">
+      <a class="text-primary" href="#"> ...and more &rarr; </a>
+    </p>
+  </div>
+</ContentSection>

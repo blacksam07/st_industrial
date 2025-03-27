@@ -1,10 +1,11 @@
 ---
 import "~/styles/global.css";
 import Layout from "~/layouts/Layout.astro";
-import Header from "~/components/Header.astro";
-import Splash from "~/components/Splash.astro";
-import AboutUs from "~/components/AboutUs.astro";
-import Services from "~/components/Services.astro";
+import Header from "@components/Header.astro";
+import Splash from "@components/Splash.astro";
+import AboutUs from "@components/AboutUs.astro";
+import Services from "@components/Services.astro";
+import Clients from "@components/Clients.astro";
 ---
 
 <Layout>
@@ -13,5 +14,6 @@ import Services from "~/components/Services.astro";
   <div class="space-y-24 px-8 py-32">
     <AboutUs />
     <Services />
+    <Clients />
   </div>
 </Layout>
