@@ -1,0 +1,60 @@
+---
+interface Props {
+  id?: string;
+  label: string;
+  type?: "text" | "email" | "tel" | "textarea" | "select";
+  placeholder?: string;
+  options?: string[];
+  rows?: number;
+}
+
+const {
+  label,
+  id = `${label}_${Math.random()}`,
+  type = "text",
+  placeholder = "",
+  options = [],
+  rows = 4,
+} = Astro.props;
+
+const inputClass = "w-full mt-1 p-2 border rounded focus:outline-primary";
+---
+
+<div>
+  <label class="block text-sm font-medium text-gray-700" for={id}>{label}</label
+  >
+  {
+    type === "select" && (
+      <select id={id} class={inputClass} required>
+        <option value="" disabled selected>
+          {placeholder}
+        </option>
+        {options.map((option) => (
+          <option value={option}>{option}</option>
+        ))}
+      </select>
+    )
+  }
+  {
+    type === "textarea" && (
+      <textarea
+        id={id}
+        class={inputClass}
+        placeholder={placeholder}
+        required
+        rows={rows}
+      />
+    )
+  }
+  {
+    type !== "select" && type !== "textarea" && (
+      <input
+        id={id}
+        type={type}
+        class={inputClass}
+        placeholder={placeholder}
+        required
+      />
+    )
+  }
+</div>

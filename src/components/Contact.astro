@@ -1,0 +1,106 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "@components/ContentSection.astro";
+import FormInput from "@components/FormInput.astro";
+
+const whatsapp =
+  "https://wa.me/573193554869?text=Hola,%20me%20interesa%20más%20información%20sobre%20sus%20servicios.";
+const services = [
+  "Revisión Técnico Mecánica",
+  "Peritaje",
+  "Mantenimiento Preventivo",
+  "Otros Servicios",
+];
+const contactInfo = [
+  {
+    icon: "phone",
+    title: "Teléfono",
+    value: "+57 319 355 4869",
+    link: "tel:+57 319 355 4869",
+  },
+  {
+    icon: "mail",
+    title: "Email",
+    value: "contacto@st_industrial.com",
+    link: "mailto:contacto@st_industrial.com",
+  },
+  {
+    icon: "chat",
+    title: "WhatsApp",
+    value: "Enviar Mensaje",
+    link: whatsapp,
+  },
+];
+---
+
+<ContentSection title="Contactos" id="contact">
+  <Fragment slot="lead">
+    Puedes comunicarte con nosotros a través de los siguientes medios o déjanos
+    tus datos.
+  </Fragment>
+  <!-- Contact Info -->
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+    {
+      contactInfo.map(({ icon, title, value, link }) => (
+        <div class="flex flex-col items-center p-8 bg-white shadow rounded">
+          <Icon name={icon} class="size-10 text-primary mb-2" />
+          <p class="font-semibold">{title}</p>
+          <a href={link} class="text-primary" target="_blank">
+            {value}
+          </a>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Contact Form -->
+  <form
+    class="mt-8 flex flex-col bg-white p-6 shadow rounded gap-4"
+    method="POST"
+  >
+    <div>
+      <h2 class="text-lg font-semibold text-center">Déjanos tus datos</h2>
+      <p class="text-center text-gray-600">
+        Nos pondremos en contacto contigo lo antes posible.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <FormInput id="name" label="Nombre" placeholder="Tu nombre" />
+      <FormInput
+        id="phone"
+        label="Teléfono"
+        type="tel"
+        placeholder="Tu teléfono"
+      />
+    </div>
+
+    <FormInput
+      id="email"
+      label="Correo Electrónico"
+      type="email"
+      placeholder="Tu correo"
+    />
+    <FormInput
+      id="service"
+      label="Servicios de Interés"
+      type="select"
+      options={services}
+      placeholder="Selecciona un servicio"
+    />
+    <FormInput
+      id="message"
+      label="Mensaje"
+      type="textarea"
+      placeholder="Déjanos un mensaje"
+      rows={4}
+    />
+
+    <div class="mt-6 text-center">
+      <button
+        class="px-6 py-2 bg-primary text-white rounded hover:bg-primary-dark cursor-pointer"
+      >
+        Enviar Mensaje
+      </button>
+    </div>
+  </form>
+</ContentSection>
