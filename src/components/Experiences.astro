@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import ContentSection from "@components/ContentSection.astro";
+import ExperienceCard from "@components/ExperienceCard.astro";
+
+const featuredSites = await getCollection("clients");
+const orderedSites = featuredSites.sort(
+  (a, b) => a.data.featured! - b.data.featured!
+);
+---
+
+<ContentSection title="Registro fotografico" id="experiences">
+  <Fragment slot="lead">
+    Nos gusta compartir nuestro trabajo, por eso hemos creado un registro
+    fotografico de nuestros trabajos. En el puedes ver la
+    <span class="text-primary">Calidad</span> de nuestra mano de obra y{" "}
+    <span class="text-secondary">Versatilidad</span> de nuestros servicios.{" "}
+  </Fragment>
+  <div class="max-w-6xl space-y-2">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {orderedSites.map((site) => <ExperienceCard site={site} />)}
+    </div>
+    <p class="text-right text-sm">
+      <a class="text-primary" href="#"> ...and more &rarr; </a>
+    </p>
+  </div>
+</ContentSection>

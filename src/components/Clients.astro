@@ -1,7 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import ContentSection from "@components/ContentSection.astro";
-import ClientsCard from "@components/ClientsCard.astro";
+
+import cdaBog from "~/assets/clients/cda_bog.png";
+import cdaCap from "~/assets/clients/cda_cap.png";
 
 const featuredSites = await getCollection("clients");
 const orderedSites = featuredSites.sort(
@@ -14,15 +17,25 @@ const orderedSites = featuredSites.sort(
     Algunos de nuestros clientes nos prefieren por <span class="text-primary"
       >versatilidad</span
     >.{" "}
-    <span class="text-primary">Calidad</span> de nuestra mano de obra y{" "}
+    <span class="text-secondary">Calidad</span> de nuestra mano de obra y{" "}
     <span class="text-primary">Transparencia</span>.
   </Fragment>
-  <div class="max-w-6xl space-y-2">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {orderedSites.map((site) => <ClientsCard site={site} />)}
-    </div>
-    <p class="text-right text-sm">
-      <a class="text-primary" href="#"> ...and more &rarr; </a>
-    </p>
+  <div class="max-w-6xl space-y-2 flex flex-row gap-4">
+    <Image
+      class="h-24 w-24 object-contain"
+      src={cdaBog}
+      alt="CDA Bogota"
+      loading="lazy"
+      width={100}
+      height={100}
+    />
+    <Image
+      class="h-24 w-24 object-contain"
+      src={cdaCap}
+      alt="CDA Cap"
+      loading="lazy"
+      width={100}
+      height={100}
+    />
   </div>
 </ContentSection>

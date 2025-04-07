@@ -2,15 +2,12 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import inspectorImage from "~/assets/inspector.png";
-import bgImage from "~/assets/picture.png";
-import Starfield from "~/components/StarField.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
-<section class="relative h-full">
-  <Starfield />
+<section class="relative h-full bg-black">
   <div class="relative grid h-full place-items-center sm:grid-cols-2">
     <h2
       class="flex flex-col items-center gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
@@ -27,7 +24,6 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       </div>
     </h2>
     <div
-      id="astronaut"
       class="w-2/3 max-w-3xl self-start sm:w-10/12 sm:self-auto sm:justify-self-start"
     >
       <Image
@@ -58,16 +54,6 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
 
     100% {
       transform: translate3d(0, 30px, 0);
-    }
-  }
-
-  #astronaut {
-    animation: float linear 2.5s infinite alternate;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    #astronaut {
-      @apply animate-none;
     }
   }
 </style>
